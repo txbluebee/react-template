@@ -3,3 +3,10 @@
 body {
   background: $bgcolor;
 }
+
+.container {
+  .jumbotron {
+    background: url(/assets/media/mario.png) no-repeat center center;
+    background-size: cover;
+  }
+}
