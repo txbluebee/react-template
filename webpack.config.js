@@ -4,9 +4,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const extractPlugin = new ExtractTextPlugin({
-  filename: './assets/css/app.css'
-});
+const extractPlugin = new ExtractTextPlugin({ filename: './assets/css/[name].css' });
 
 const config = {
   context: path.resolve(__dirname, 'src'),
@@ -37,6 +35,7 @@ const config = {
       {
         test: /\.scss$/,
         // include: [path.resolve(__dirname, 'src', 'assets', 'scss')],
+        // exclude: /node_modules/,
         use: extractPlugin.extract({
           use: [
             {
@@ -48,7 +47,7 @@ const config = {
             {
               loader: 'sass-loader',
               options: {
-                sourceMap: true
+                sourceMap: false
               }
             }
           ],
@@ -56,7 +55,18 @@ const config = {
         })
       },
       // file-loader(for images)
-      { test: /\.(jpg|png|gif|svg)$/, use: [ { loader: 'file-loader', options: { name: '[name].[ext]', outputPath: './assets/media/' } } ] },
+      {
+        test: /\.(jpg|png|gif|svg)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: './assets/media/'
+            }
+          }
+        ]
+      },
       // file-loader(for fonts)
       { test: /\.(woff|woff2|eot|ttf|otf)$/, use: ['file-loader'] }
 
