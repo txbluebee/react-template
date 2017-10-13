@@ -32,6 +32,27 @@ npm run build
 npm run build:prod
 ```
 
+## Push to github pages
+
+```
+npm run build:prod // create dist folder
+```
+create new repository in github
+
+```
+git remote add origin [repository name]
+```
+```
+git checkout -b gh-pages
+```
+```
+git subtree push --prefix dist origin gh-pages
+```
+Deployment project would be "http://[userId].github.io/[repository name]"
+
+
+
+
 ## Loaders and Plugins used in this boilerplate
 
 ### Loaders
