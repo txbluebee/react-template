@@ -6,7 +6,10 @@ body {
 
 .container {
   .jumbotron {
-    background: url("./../media/mario.png") no-repeat center center;
+    background: url("../media/mario.png") no-repeat center center;
     background-size: cover;
+  }
+  h1 {
+    color: blue;
   }
 }

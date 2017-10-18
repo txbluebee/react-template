@@ -41,17 +41,18 @@ const config = {
             {
               loader: 'css-loader',
               options: {
-                sourceMap: true,
-                url: false
+                sourceMap: true
               }
             },
+            'resolve-url-loader',
             {
               loader: 'sass-loader',
               options: {
-                sourceMap: false
+                sourceMap: true
               }
             }
           ],
+          publicPath: '../../',
           fallback: 'style-loader'
         })
       },
@@ -67,10 +68,7 @@ const config = {
             }
           }
         ]
-      },
-      // file-loader(for fonts)
-      { test: /\.(woff|woff2|eot|ttf|otf)$/, use: ['file-loader'] }
-
+      }
     ]
   },
 
