@@ -24,7 +24,7 @@ const config = {
 
       // babel-loader with 'env' preset
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         include: /src/,
         exclude: /node_modules/,
         use: "babel-loader"

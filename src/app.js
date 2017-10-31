@@ -1,9 +1,19 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import App from './components/app';
+import reducers from './reducers/app';
+
 import './assets/scss/app.scss';
-import { sum } from './assets/js/sum'; //import sum js module
 import 'jquery';
-import 'bootstrap'; // importing bootstrap.js
+import 'bootstrap'; 
+import 'bootstrap/scss/bootstrap.scss'; 
 
-import 'bootstrap/scss/bootstrap.scss'; // bootstrap.scss
+const createStoreWithMiddleware = applyMiddleware()(createStore);
 
-const total = sum(10,5);
-console.log(total);
+ReactDOM.render(
+  <Provider store={createStoreWithMiddleware(reducers)}>
+    <App />
+  </Provider>
+  , document.querySelector('.container'));
